@@ -10,13 +10,10 @@ config();
 
 const ERROR_MESSAGE = "エラーが発生しました。";
 
-async function readQuestionJson() {
-  const questionJson = await fs.readFile(
-    path.resolve(path.dirname(fileURLToPath(import.meta.url)), "questions.json"),
-    "utf-8"
-  );
-  return questionJson;
-};
+const questionJson = await fs.readFile(
+  path.resolve(path.dirname(fileURLToPath(import.meta.url)), "questions.json"),
+  "utf-8",
+);
 
 const questionData = JSON.parse(questionJson);
 const length = questionData.length;
